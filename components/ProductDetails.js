@@ -1,9 +1,9 @@
 app.component("product-details", {
   props: {
-      details: {
-          type: Array,
-          required: false,
-      }
+    details: {
+      type: Array,
+      required: false,
+    },
   },
 
   template:

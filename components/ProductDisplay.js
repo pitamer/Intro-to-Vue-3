@@ -46,17 +46,11 @@ app.component("product-display", {
             </div>
             <product-details :details="product.details"></product-details>
           </div>
-          <div class="product-variants">
-            <ul>
-              <li
-                v-for="(variant, variantIndex) in product.variants"
-                :key="variant"
-                @mouseover="selectVariant(productIndex, variantIndex)"
-                class="color-circle"
-                :style="{backgroundColor: variant.color}"
-              ></li>
-            </ul>
-          </div>
+          <product-variants
+            :productIndex="productIndex"
+            :variants="product.variants"
+            @select-variant="selectVariant"
+          ></product-variants>
           <button
             @click="addToCart(product.variants[product.selectedVariantIndex].id)"
             :disabled="!getQuantity(productIndex, product.selectedVariantIndex)"
